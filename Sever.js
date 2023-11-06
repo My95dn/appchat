@@ -7,22 +7,22 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 let sever = require('http').Server(app)
 let io = require('socket.io')(sever)
-const port = process.env.PORT || 8080;
 const multer  = require('multer')
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, 'public/uploads') 
+        cb(null, 'public/uploads') 
     },
     filename: function (req, file, cb) {
-      cb(null, Date.now() + '-' + file.originalname) 
+        cb(null, Date.now() + '-' + file.originalname) 
     }
-  });
-  const upload = multer({ storage: storage });
+});
+const upload = multer({ storage: storage });
 let array = []
 let subArray = []
 let pathnameImage = ''
 let id = ''
 let images = []
+const port = process.env.PORT || 8080;
 sever.listen(port, () => {
     console.log('hello')
 })

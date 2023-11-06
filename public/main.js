@@ -1,4 +1,8 @@
-let sever = io('http://localhost:8080')
+let htp = "http://appchat-omega.vercel.app"
+
+let sever = io(htp || 'http://localhost:8080')
+
+
 let int = document.querySelector('.int')
 let btn = document.querySelector('.btn')
 let logins = document.querySelector('.login')
